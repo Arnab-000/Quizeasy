@@ -32,7 +32,7 @@ function Question({ allAnswers, setAllAnswer }) {
 
   return (
     <>
-      <div className="w-[80vw] mt-[30vh] bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg">
+      <div className="w-[80vw] mt-[30vh] mb-[30%] md:mb-0 bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg">
         <div className=" w-[80%] mx-auto my-2 min-h-[4.25rem] max-h-fit text-[#fefdfd] font-semibold text-4xl">
           Q. {resource[currentPage].question}
         </div>
