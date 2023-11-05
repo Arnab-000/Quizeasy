@@ -3,7 +3,7 @@ export default function Header() {
     <img
       src="../assets/Quizeasy.png"
       alt=""
-      className=" h-[100px] mt-[2%] mb-[-5%] mx-auto"
+      className=" h-[100px] mt-[5%] mb-[-8%] mx-auto"
     />
   );
 }

@@ -15,9 +15,9 @@ export default function Answer({ allAnswers, setAllAnswer }) {
     setCurrentPage(currentPage + 1);
   };
   const handleFinish = () => {
-    setAllAnswer([]);
+    window.location.href = "https://github.com/Arnab-000/Quizeasy";
+    // setAllAnswer([]);
   };
-  
 
   return (
     <>
@@ -60,14 +60,12 @@ export default function Answer({ allAnswers, setAllAnswer }) {
           )}
 
           {currentPage + 1 === totalQuestion && (
-            <Link to="/">
-              <button
-                className=" bg-[#a37cf0] p-4 w-32 border border-solid border-1 rounded text-black text-2xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px] hover:text-white"
-                onClick={handleFinish}
-              >
-                Finish
-              </button>
-            </Link>
+            <button
+              className=" bg-[#a37cf0] p-4 w-32 border border-solid border-1 rounded text-black text-2xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px] hover:text-white"
+              onClick={handleFinish}
+            >
+              Finish
+            </button>
           )}
         </div>
       </div>
