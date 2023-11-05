@@ -18,15 +18,15 @@ export default function Result({
 
   function handleTryAgain() {
     setAllAnswer([]);
-    setUserName(null);
+    // setUserName(null);
   }
 
   let Percentage = (userCorrect / resource.length) * 100;
   return (
     <>
-      <div className="w-[80vw] mt-[30vh] bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg text-center">
+      <div className="w-[80vw] mt-[20vh] bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg text-center">
         <h1 className=" text-white text-2xl mb-[5%]">
-          Kon'nichiwa yūzā ( Hello{" "}
+          Kon'nichiwa yūzā ( Hello
           <span className="text-2xl font-bold"> {userName} </span> )
         </h1>
         <h2 className="text-[#fefdfd] text-xl">
