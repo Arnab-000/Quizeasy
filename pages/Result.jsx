@@ -1,7 +1,12 @@
 import { resource } from "../data/storage";
 import { Link } from "react-router-dom";
 
-export default function Result({ allAnswers }) {
+export default function Result({
+  allAnswers,
+  userName,
+  setUserName,
+  setAllAnswer,
+}) {
   let userCorrect = 0;
   let correctAnswer = resource;
 
@@ -11,12 +16,18 @@ export default function Result({ allAnswers }) {
     }
   });
 
+  function handleTryAgain() {
+    setAllAnswer([]);
+    setUserName(null);
+  }
+
   let Percentage = (userCorrect / resource.length) * 100;
   return (
     <>
-      <div className="w-[80vw] mt-[30vh] bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg">
+      <div className="w-[80vw] mt-[30vh] bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg text-center">
         <h1 className=" text-white text-2xl mb-[5%]">
-          Kon'nichiwa yūzā ( Hello User )
+          Kon'nichiwa yūzā ( Hello{" "}
+          <span className="text-2xl font-bold"> {userName} </span> )
         </h1>
         <h2 className="text-[#fefdfd] text-xl">
           Total Question :{" "}
@@ -44,14 +55,18 @@ export default function Result({ allAnswers }) {
             </h2>
           </div>
         )}
+
         <div className="w-[80%] mx-auto flex justify-evenly ">
-          <Link to="/">
-            <button className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[8%] hover:bg-[#5f43b2] hover:border-[2px]">
+          <Link to="/questions">
+            <button
+              className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[8%] hover:bg-[#5f43b2] hover:border-[2px]"
+              onClick={handleTryAgain}
+            >
               Try Again
             </button>
           </Link>
 
-          <Link to="/">
+          <Link to="/answer">
             <button className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px]">
               Answers
             </button>

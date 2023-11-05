@@ -1,34 +1,23 @@
-import { useState } from "react";
 import { resource } from "../data/storage";
-import ButtonForOption from "../components/ButtonForOption";
+import { useState } from "react";
+import ButtonForAnswer from "../components/ButtonForAnswer";
 import { Link } from "react-router-dom";
 
-function Question({ allAnswers, setAllAnswer }) {
+export default function Answer({ allAnswers, setAllAnswer }) {
   const [currentPage, setCurrentPage] = useState(0);
-  const [currentSelected, setCurrentSelected] = useState(null);
-  const [currentAns, setCurrentAns] = useState(null);
   const totalQuestion = resource.length;
-
-  const handleSubmit = () => {
-    if (currentAns === null) {
-      alert("Select an Option First! ~.~");
-      return;
-    }
-    setAllAnswer([...allAnswers, currentAns]);
-    setCurrentAns(null);
-    setCurrentPage(0);
-  };
-
+  if (allAnswers.length <= 0) {
+    allAnswers = [];
+    alert("Go give the quiz first");
+    return null;
+  }
   const handleNext = () => {
-    if (currentAns === null) {
-      alert("Select an Option First! ~.~");
-      return;
-    }
     setCurrentPage(currentPage + 1);
-    setCurrentSelected(null);
-    setCurrentAns(null);
-    setAllAnswer([...allAnswers, currentAns]);
   };
+  const handleFinish = () => {
+    setAllAnswer([]);
+  };
+  
 
   return (
     <>
@@ -38,33 +27,25 @@ function Question({ allAnswers, setAllAnswer }) {
         </div>
 
         <div className="w-[80%] mx-auto grid gap-2 h-fit grid-cols-1 lg:grid-cols-2">
-          <ButtonForOption
-            optionNo="A"
-            currentSelected={currentSelected}
+          <ButtonForAnswer
             currentPage={currentPage}
-            setCurrentSelected={setCurrentSelected}
-            setCurrentAns={setCurrentAns}
+            givenAnswer={allAnswers[currentPage]}
+            option={"A"}
           />
-          <ButtonForOption
-            optionNo="B"
-            currentSelected={currentSelected}
+          <ButtonForAnswer
             currentPage={currentPage}
-            setCurrentSelected={setCurrentSelected}
-            setCurrentAns={setCurrentAns}
+            givenAnswer={allAnswers[currentPage]}
+            option={"B"}
           />
-          <ButtonForOption
-            optionNo="C"
-            currentSelected={currentSelected}
+          <ButtonForAnswer
             currentPage={currentPage}
-            setCurrentSelected={setCurrentSelected}
-            setCurrentAns={setCurrentAns}
+            givenAnswer={allAnswers[currentPage]}
+            option={"C"}
           />
-          <ButtonForOption
-            optionNo="D"
-            currentSelected={currentSelected}
+          <ButtonForAnswer
             currentPage={currentPage}
-            setCurrentSelected={setCurrentSelected}
-            setCurrentAns={setCurrentAns}
+            givenAnswer={allAnswers[currentPage]}
+            option={"D"}
           />
         </div>
 
@@ -79,12 +60,12 @@ function Question({ allAnswers, setAllAnswer }) {
           )}
 
           {currentPage + 1 === totalQuestion && (
-            <Link to="/result">
+            <Link to="/">
               <button
                 className=" bg-[#a37cf0] p-4 w-32 border border-solid border-1 rounded text-black text-2xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px] hover:text-white"
-                onClick={handleSubmit}
+                onClick={handleFinish}
               >
-                Submit
+                Finish
               </button>
             </Link>
           )}
@@ -93,5 +74,3 @@ function Question({ allAnswers, setAllAnswer }) {
     </>
   );
 }
-
-export default Question;
