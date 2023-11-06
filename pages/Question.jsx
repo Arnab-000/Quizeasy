@@ -78,16 +78,24 @@ function Question({ allAnswers, setAllAnswer }) {
             </button>
           )}
 
-          {currentPage + 1 === totalQuestion && (
-            <Link to="/result">
+          {currentPage + 1 === totalQuestion &&
+            (currentAns ? (
+              <Link to="/result">
+                <button
+                  className=" bg-[#a37cf0] p-4 w-32 border border-solid border-1 rounded text-black text-2xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px] hover:text-white"
+                  onClick={handleSubmit}
+                >
+                  Submit
+                </button>
+              </Link>
+            ) : (
               <button
                 className=" bg-[#a37cf0] p-4 w-32 border border-solid border-1 rounded text-black text-2xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px] hover:text-white"
                 onClick={handleSubmit}
               >
                 Submit
               </button>
-            </Link>
-          )}
+            ))}
         </div>
       </div>
     </>
