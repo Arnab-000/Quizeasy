@@ -5,7 +5,7 @@ export default function Header() {
     <img
       src={am}
       alt=""
-      className=" h-[100px] mt-[5%]  mb-[-12%] md:mb-[-8%] mx-auto"
+      className=" h-[100px]  mb-[-12%] md:mb-[-8%] mx-auto"
     />
   );
 }
