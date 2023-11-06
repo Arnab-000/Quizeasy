@@ -24,7 +24,7 @@ export default function Result({
   let Percentage = (userCorrect / resource.length) * 100;
   return (
     <>
-      <div className="w-[80vw] mt-[20vh] md:mt-[30vh] mb-[30%] md:mb-0 bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg text-center">
+      <div className="w-[80vw] mt-[15vh] md:mt-[30vh] mb-[30%] md:mb-0 bg-[#5f43b2] flex flex-col items-center mx-auto p-4 gap-2 border rounded-lg text-center">
         <h1 className=" text-white text-2xl mb-[5%]">
           Kon'nichiwa yūzā ( Hello
           <span className="text-2xl font-bold"> {userName} </span> )
