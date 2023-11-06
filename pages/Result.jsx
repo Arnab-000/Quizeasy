@@ -56,7 +56,7 @@ export default function Result({
           </div>
         )}
 
-        <div className="w-[80%] mx-auto flex justify-evenly ">
+        <div className="w-[80%] mx-auto flex flex-col md:flex-row justify-evenly ">
           <Link to="/questions">
             <button
               className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[8%] hover:bg-[#5f43b2] hover:border-[2px]"
@@ -67,7 +67,7 @@ export default function Result({
           </Link>
 
           <Link to="/answer">
-            <button className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[4%] hover:bg-[#5f43b2] hover:border-[2px]">
+            <button className=" bg-[#3a3153] p-4 w-32 border border-solid border-1 rounded text-white text-xl mt-[8%] hover:bg-[#5f43b2] hover:border-[2px]">
               Answers
             </button>
           </Link>
